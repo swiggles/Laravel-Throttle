@@ -32,7 +32,7 @@ class ThrottleServiceProvider extends ServiceProvider
     {
         $this->setupConfig();
 
-        $this->setupFilters($this->app->router, $this->app->throttle);
+        $this->setupFilters($this->app['router'], $this->app['throttle']);
     }
 
     /**
@@ -81,7 +81,7 @@ class ThrottleServiceProvider extends ServiceProvider
     /**
      * Register the factory class.
      *
-     * @param Illuminate\Contracts\Foundation\Application $app
+     * @param \Illuminate\Contracts\Foundation\Application $app
      *
      * @return void
      */
@@ -99,7 +99,7 @@ class ThrottleServiceProvider extends ServiceProvider
     /**
      * Register the transformer class.
      *
-     * @param Illuminate\Contracts\Foundation\Application $app
+     * @param \Illuminate\Contracts\Foundation\Application $app
      *
      * @return void
      */
@@ -115,7 +115,7 @@ class ThrottleServiceProvider extends ServiceProvider
     /**
      * Register the throttle class.
      *
-     * @param Illuminate\Contracts\Foundation\Application $app
+     * @param \Illuminate\Contracts\Foundation\Application $app
      *
      * @return void
      */
