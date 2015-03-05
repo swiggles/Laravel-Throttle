@@ -151,4 +151,38 @@ class CacheThrottler implements ThrottlerInterface, Countable
     {
         return $this->store;
     }
+
+    /**
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param int $limit
+     */
+    public function setLimit($limit)
+    {
+        $this->limit = $limit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param int $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+
 }

@@ -65,12 +65,20 @@ class Throttle
      *
      * @return \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
      */
-    public function get($data, $limit = 10, $time = 60)
+    public function get($data, $limit = null, $time = null)
     {
-        $transformed = $this->transformer->make($data)->transform($data, $limit, $time);
+        $transformed = $this->transformer->make($data)->transform($data, 10, 60);
 
         if (!array_key_exists($key = $transformed->getKey(), $this->throttlers)) {
             $this->throttlers[$key] = $this->factory->make($transformed);
+        } 
+
+        if ($limit) {
+            $this->throttlers[$key]->setLimit($limit);
+        }
+
+        if ($time) {
+            $this->throttlers[$key]->setTime($time);
         }
 
         return $this->throttlers[$key];
